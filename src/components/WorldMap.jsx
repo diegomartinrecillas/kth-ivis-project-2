@@ -102,8 +102,8 @@ class WorldMap extends Component {
 											style={{
 												default: {
 													fill: props.wave == '6'
-													? popScale(geography.properties.pop_est)
-													: '#CFD8DC',
+														? popScale(geography.properties.pop_est)
+														: '#CFD8DC',
 													stroke: "#607D8B",
 													strokeWidth: 0.75,
 													outline: "none"
