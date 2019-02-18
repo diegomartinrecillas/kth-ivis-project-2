@@ -1,0 +1,36 @@
+.world-map {
+	align-content: center;
+	display: flex;
+}
+
+.map {
+	border-radius: 2px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.map-container {
+	display: inline-block;
+	margin: 0 auto;
+	position: relative;
+}
+
+.zoom-controls {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 5px;
+}
+
+.zoom-control {
+	margin: 5px;
+}
+
+.tooltip {
+	max-width: 150px;
+}
+
+// override react-tooltip default styles
+.__react_component_tooltip {
+	opacity: 1 !important;
+}
