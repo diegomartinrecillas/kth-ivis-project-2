@@ -2,23 +2,25 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.scss';
 
-import WorldMap from './components/WorldMap';
-import WaveToggle from './components/WaveToggle';
+import WorldMap from './components/world-map/WorldMap';
+import WaveToggle from './components/wave-toggle/WaveToggle';
+import CountryStats from './components/country-stats/CountryStats';
 
 
 class App extends Component {
   render() {
     return (
       <>
-        <WaveToggle className="wave-picker"/>
+        <WaveToggle />
         <WorldMap />
+				<CountryStats />
       </>
     );
   }
 }
 
 const mapStateToProps = state => ({
-	title: state.app.title
+	title: state.general.title
 });
 
 

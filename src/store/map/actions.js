@@ -1,15 +1,25 @@
-import { pfx } from '../utils/pfx';
+import { pfx } from '../../utils/pfx';
 
-const base = 'app/map';
+const base = '@@app/map';
 
 export const SET_CURRENT_COUNTRY = pfx(base,'SET_CURRENT_COUNTRY');
-export const setCurrentCountry = (country) => {
+export const setCurrentCountry = country => {
 	return { type: SET_CURRENT_COUNTRY, country }
 }
 
 export const CLEAR_CURRENT_COUNTRY = pfx(base,'CLEAR_CURRENT_COUNTRY');
 export const clearCurrentCountry = () => {
 	return { type: CLEAR_CURRENT_COUNTRY }
+}
+
+export const SET_SELECTED_COUNTRY = pfx(base,'SET_SELECTED_COUNTRY');
+export const setSelectedCountry = country => {
+	return async dispatch => dispatch({ type: SET_SELECTED_COUNTRY, country })
+}
+
+export const CLEAR_SELECTED_COUNTRY = pfx(base,'CLEAR_SELECTED_COUNTRY');
+export const clearSelectedCountry = () => {
+	return async dispatch => dispatch({ type: CLEAR_SELECTED_COUNTRY })
 }
 
 export const INCREASE_ZOOM = pfx(base,'INCREASE_ZOOM');
@@ -28,7 +38,7 @@ export const resetZoom = () => {
 }
 
 export const SET_CENTER = pfx(base,'SET_CENTER');
-export const setCenter = (center) => {
+export const setCenter = center => {
 	return { type: SET_CENTER, center }
 }
 

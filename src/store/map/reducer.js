@@ -7,16 +7,16 @@ import {
 	RESET_ZOOM,
 	SET_CENTER,
 	ENABLE_OPTIMIZATION,
-	DISABLE_OPTIMIZATION
-} from '../actions/';
+	DISABLE_OPTIMIZATION,
+	SET_SELECTED_COUNTRY,
+	CLEAR_SELECTED_COUNTRY
+} from './actions';
 
 const mapState = {
-	currentCountry: {
-		iso_n3: null,
-		name: null
-	},
+	currentCountry: null, // name: string, iso_n3: string
+	selectedCountry: null, // name: string, iso_n3: string
 	zoom: 1.5,
-	center: [0, 0],
+	center: [0, 20],
 	optimize: true
 }
 
@@ -25,16 +25,25 @@ export const map = (state = mapState, action) => {
 		case CLEAR_CURRENT_COUNTRY: {
 			return {
 				...state,
-				currentCountry: {
-					iso_n3: null,
-					name: null
-				}
+				currentCountry: null
 			}
 		}
 		case SET_CURRENT_COUNTRY: {
 			return {
 				...state,
 				currentCountry: { ...action.country }
+			}
+		}
+		case CLEAR_SELECTED_COUNTRY: {
+			return {
+				...state,
+				selectedCountry: null
+			}
+		}
+		case SET_SELECTED_COUNTRY: {
+			return {
+				...state,
+				selectedCountry: { ...action.country }
 			}
 		}
 		case INCREASE_ZOOM: {
@@ -57,7 +66,7 @@ export const map = (state = mapState, action) => {
 			return {
 				...state,
 				zoom: 1.5,
-				center: [0, 0]
+				center: [0, 20]
 			}
 		}
 		case SET_CENTER: {

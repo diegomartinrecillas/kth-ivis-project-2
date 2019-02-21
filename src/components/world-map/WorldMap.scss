@@ -15,6 +15,15 @@
 	position: relative;
 }
 
+.color-legend {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	height: 40px;
+	background-color: white;
+	width: 100px;
+}
+
 .zoom-controls {
 	position: absolute;
 	right: 0;
@@ -28,9 +37,26 @@
 
 .tooltip {
 	max-width: 150px;
+	padding: 0 0 20px;
+}
+
+.tooltip-answers {
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 1px;
+	margin-bottom: 2px;
+}
+
+.tooltip-item {
+	padding: 2px;
 }
 
 // override react-tooltip default styles
 .__react_component_tooltip {
+	border: 1px solid #555;
+	background-color: #333 !important;
 	opacity: 1 !important;
+	color: #fafafa !important;
 }

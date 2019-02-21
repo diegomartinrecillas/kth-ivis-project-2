@@ -1,0 +1,39 @@
+.country-stats {
+	background-color: #333;
+	bottom: 20px;
+	color: #fafafa;
+	left: 20px;
+	position: fixed;
+	width: 18rem;
+	padding: 0 20px 20px;
+	font-size: .75rem;
+	cursor: pointer;
+	transition: all .1s ease-in-out;
+
+	&:active {
+		cursor: grab;
+		transition: none;
+	}
+}
+
+.stat {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 1px;
+	margin-bottom: 2px;
+}
+
+.stat-item {
+	flex: 1;
+	padding: 4px 2px;
+
+	&.stat-item_data {
+		text-align: right;
+	}
+}
+
+.year-legend {
+	font-size: .65rem;
+	color: #777;
+}

@@ -1,7 +1,8 @@
-import { SET_WAVE } from '../actions/'
+import { SET_VALUE, SET_WAVE } from './actions'
 
 const waveState = {
-	selected: '6'
+	selected: '6',
+	value: 'Happiness'
 }
 
 export const wave = (state = waveState, action) => {
@@ -10,6 +11,12 @@ export const wave = (state = waveState, action) => {
 			return {
 				...state,
 				selected: action.wave || state.selected
+			}
+		}
+		case SET_VALUE: {
+			return {
+				...state,
+				value: action.value
 			}
 		}
 		default: return state;
