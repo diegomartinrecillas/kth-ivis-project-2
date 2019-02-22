@@ -9,7 +9,8 @@ import {
 	ENABLE_OPTIMIZATION,
 	DISABLE_OPTIMIZATION,
 	SET_SELECTED_COUNTRY,
-	CLEAR_SELECTED_COUNTRY
+	CLEAR_SELECTED_COUNTRY,
+	SET_ZOOM
 } from './actions';
 
 const mapState = {
@@ -44,6 +45,12 @@ export const map = (state = mapState, action) => {
 			return {
 				...state,
 				selectedCountry: { ...action.country }
+			}
+		}
+		case SET_ZOOM: {
+			return {
+				...state,
+				zoom: action.zoom
 			}
 		}
 		case INCREASE_ZOOM: {

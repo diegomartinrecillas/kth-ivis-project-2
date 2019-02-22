@@ -23,6 +23,10 @@ class CountryStats extends Component {
 		return currency ? `USD ${currency}` : '-';
 	}
 
+	renderCorruption(index) {
+		return  index ? `${index} out of 100` : '-';
+	}
+
 	render() {
 		const { props } = this;
 		return (
@@ -85,7 +89,7 @@ class CountryStats extends Component {
 							<div className="stat">
 								<div className="stat-item">{gapminder.corruption_perception_index_cpi}</div>
 								<div className="stat-item stat-item_data">
-									{props.stats.corruption.value || '-'}<br />
+									{this.renderCorruption(props.stats.corruption.value)}<br />
 									<span className="year-legend">{props.stats.corruption.year}</span>
 								</div>
 							</div>

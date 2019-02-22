@@ -22,6 +22,11 @@ export const clearSelectedCountry = () => {
 	return async dispatch => dispatch({ type: CLEAR_SELECTED_COUNTRY })
 }
 
+export const SET_ZOOM = pfx(base, 'SET_ZOOM');
+export const setZoom = (zoom) => {
+	return { type: SET_ZOOM, zoom }
+}
+
 export const INCREASE_ZOOM = pfx(base,'INCREASE_ZOOM');
 export const increaseZoom = () => {
 	return { type: INCREASE_ZOOM }
