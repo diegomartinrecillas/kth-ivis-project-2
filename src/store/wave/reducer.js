@@ -2,7 +2,7 @@ import { SET_VALUE, SET_WAVE } from './actions'
 
 const waveState = {
 	selected: '6',
-	value: 'Happiness'
+	value: 'Democracy'
 }
 
 export const wave = (state = waveState, action) => {

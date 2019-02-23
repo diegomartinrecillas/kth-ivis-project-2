@@ -44,13 +44,15 @@ class WorldMap extends Component {
 
 	state = {
 		height: null,
-		width: null
+		width: null,
+		virtualCenter: null
 	}
 
 	componentWillMount() {
 		this.setState({
 			height: window.innerHeight,
-			width: window.innerWidth
+			width: window.innerWidth,
+			virtualCenter: this.props.center
 		})
 	}
 
@@ -63,7 +65,7 @@ class WorldMap extends Component {
 		.range(["#f44336", "#ffeb3b", "#4caf50"])
 
 	handleClick = (geography, evt) => {
-		if (this.ignoreClick) return;
+		// if (this.ignoreClick) return;
 
 		const { iso_n3, name, gapminder } = geography.properties;
 
@@ -83,8 +85,8 @@ class WorldMap extends Component {
 	}
 
 	handleMoveEnd = (center) => {
-		this.ignoreClick = this.compareWitPrecision(center, this.props.center, 12)
-		this.props.setCenter(center);
+		this.ignoreClick = this.compareWitPrecision(center, this.state.virtualCenter, 12);
+		this.setState({ virtualCenter: center });
 	}
 
 	compareWitPrecision(newCenter, center, precision) {
@@ -98,8 +100,9 @@ class WorldMap extends Component {
 	}
 
 	disableReset() {
-		const { props } = this;
-		return !(props.zoom !== 1.5 || props.center[0] !== 0 || props.center[1] !== 20);
+		const { zoom } = this.props;
+		const { virtualCenter } = this.state;
+		return !(zoom !== 1.5 || virtualCenter[0] !== 0 || virtualCenter[1] !== 20);
 	}
 
 	reduceValue = geography => {
